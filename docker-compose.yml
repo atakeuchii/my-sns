@@ -1,6 +1,6 @@
 services:
   db-master:
-    image: 'bitnamilegacy/postgresql:15'
+    image: 'soldevelo/postgresql:15'
     environment:
       - POSTGRESQL_REPLICATION_MODE=master
       - POSTGRESQL_REPLICATION_USER=repl_user
@@ -19,7 +19,7 @@ services:
     volumes:
       - master_data:/bitnami/postgresql
   db-replica:
-    image: 'bitnamilegacy/postgresql:15'
+    image: 'soldevelo/postgresql:15'
     environment:
       - POSTGRESQL_REPLICATION_MODE=slave
       - POSTGRESQL_MASTER_HOST=db-master
@@ -37,7 +37,7 @@ services:
       - replica_data:/bitnami/postgresql
 
   db-test:
-    image: 'bitnamilegacy/postgresql:15'
+    image: 'soldevelo/postgresql:15'
     environment:
       - POSTGRESQL_USERNAME=dev
       - POSTGRESQL_PASSWORD=password
